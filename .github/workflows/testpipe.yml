@@ -6,3 +6,18 @@ jobs:
     steps:
       - name: Greet the world
         run: echo "Hello, World!"
+  find-path:
+    runs-on: ubuntu-latest
+    steps:
+      - name: find the path
+        run: pwd
+  list-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list the files
+        run: ls -ltr
+  checkout-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v4
