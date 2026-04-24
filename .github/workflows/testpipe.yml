@@ -3,12 +3,10 @@ on: [push]  # Triggers the workflow every time you push code
 jobs:
   say-hello:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.greetthe-world.outputs.test }}
+  
     steps:
       - name: Greet the world
-        id: greetthe-world
-        run: echo "Hello, World!" >> "$GITHUB_OUTPUT1"
+        run: echo "Hello, World!" >> "$GITHUB_OUTPUT"
  
   checkout-code:
     runs-on: ubuntu-latest
