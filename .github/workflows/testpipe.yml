@@ -6,6 +6,12 @@ jobs:
     steps:
       - name: Greet the world
         run: echo "Hello, World!"
+ 
+  checkout-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v4
   find-path:
     runs-on: ubuntu-latest
     steps:
@@ -16,8 +22,3 @@ jobs:
     steps:
       - name: list the files
         run: ls -ltr
-  checkout-code:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout the code
-        uses: actions/checkout@v4
