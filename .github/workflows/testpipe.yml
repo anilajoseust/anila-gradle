@@ -6,7 +6,7 @@ jobs:
   
     steps:
       - name: Greet the world
-        run: echo "Hello, World!" >> "$GITHUB_OUTPUT"
+        run: echo "Hello, World!" 
  
   checkout-code:
     runs-on: ubuntu-latest
