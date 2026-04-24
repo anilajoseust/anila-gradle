@@ -4,10 +4,11 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.Greet the world.outputs.test }}
+      output1: ${{ steps.greetthe-world.outputs.test }}
     steps:
       - name: Greet the world
-        run: echo "Hello, World!" >> "$GITHUB_OUTPUT"
+        id: greetthe-world
+        run: echo "Hello, World!" >> "$GITHUB_OUTPUT1"
  
   checkout-code:
     runs-on: ubuntu-latest
