@@ -12,13 +12,7 @@ jobs:
     steps:
       - name: checkout the code
         uses: actions/checkout@v4
-  find-path:
-    runs-on: ubuntu-latest
-    steps:
       - name: find the path
         run: pwd
-  list-files:
-    runs-on: ubuntu-latest
-    steps:
       - name: list the files
         run: ls -ltr
