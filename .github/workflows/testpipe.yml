@@ -1,0 +1,8 @@
+name: Hello World Workflow
+on: [push]  # Triggers the workflow every time you push code
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet the world
+        run: echo "Hello, World!"
