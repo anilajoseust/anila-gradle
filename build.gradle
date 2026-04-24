@@ -1,0 +1,69 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+	id 'org.springframework.boot' version '2.3.3.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+
+	// Jib plugin 
+	id 'com.google.cloud.tools.jib' version "${jibVersion}"
+}
+
+group = 'com.jhooq.demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+// This is used to generate build number using GitHub run number (example: 1.0.0-build-01)
+allprojects {
+    repositories {
+        maven { 
+			url 'https://jitpack.io' 
+		}
+    }
+
+    ext {
+        buildNumber = System.getenv("GITHUB_RUN_NUMBER") ?: "0"
+    }
+
+    version = "${project.majorVersion}-build-${project.ext.buildNumber}".toString()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+// Task use to generate metadata
+task generateMetadata(type: WriteProperties) {
+    property("version", project.version)
+    setOutputFile("${buildDir}/metadata.properties")
+}
+
+// Task use to tag docker image
+jib {
+    from {
+        image = "gcr.io/distroless/java@sha256:629d4fdc17eec821242d45497abcb88cc0442c47fd5748baa79d88dde7da3e2d"
+    }
+    to {
+        image = "limarktest/${project.name}:${project.version}"
+    }
+}
+
+// Task use to push built docker image
+task dockerPush {
+    doLast {
+        exec {
+            commandLine 'docker', 'push', "limarktest/${project.name}:${project.version}"
+        }
+    }
+} 
