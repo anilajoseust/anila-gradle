@@ -3,15 +3,13 @@ on: [push]  # Triggers the workflow every time you push code
 jobs:
   say-hello:
     runs-on: ubuntu-latest
-  
+    outputs:
+      value: ${{steps.hi.outputs.my_value}}
     steps:
       - name: Greet the world
-        run: echo "Hello, World!" > hello.txt
-      - name: Upload File
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-artifact
-          path: hello.txt
+        id: hi
+        run: echo "my_value=Hello, World!" >> $GITHUB_OUTPUT
+      
   checkout-code:
     runs-on: ubuntu-latest
     needs: say-hello
@@ -22,9 +20,7 @@ jobs:
         run: pwd
       - name: list the files
         run: ls -ltr
-      - name: Download File
-        uses: actions/download-artifact@v4
-        with:
-          name: my-artifact
-      - name: Use File
-        run: cat hello.txt
+      - name: use value from say_hello
+        run: echo "\value is ${{needs.say_hello.outputs.value}}"
+
+
