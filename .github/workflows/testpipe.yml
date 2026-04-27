@@ -4,7 +4,7 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     outputs:
-      value: ${{steps.hi.outputs.value}}
+      value: ${{steps.hi.outputs.my_value}}
     steps:
       - name: Greet the world
         id: hi
