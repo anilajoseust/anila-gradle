@@ -21,6 +21,6 @@ jobs:
       - name: list the files
         run: ls -ltr
       - name: use value from say_hello
-        run: echo "value is ${{needs.say_hello.outputs.my_value}}"
+        run: echo "value is ${{needs.say_hello.outputs.value}}"
 
 
