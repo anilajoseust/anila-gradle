@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Greet the world
         id: hi
-        run: echo "Hello, World!" >> $GITHUB_OUTPUT
+        run: echo "my_value=Hello, World!" >> $GITHUB_OUTPUT
       
   checkout-code:
     runs-on: ubuntu-latest
