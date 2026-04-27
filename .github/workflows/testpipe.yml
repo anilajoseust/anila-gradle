@@ -4,11 +4,11 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     outputs:
-      value: ${{steps.hi.outputs.my_value}}
+      my_shared_var: ${{steps.hi.outputs.test_value}}
     steps:
       - name: Greet the world
         id: hi
-        run: echo "my_value=Hello, World!" >> $GITHUB_OUTPUT
+        run: echo "test_value=Hello, World!" >> $GITHUB_OUTPUT
       
   checkout-code:
     runs-on: ubuntu-latest
@@ -21,6 +21,6 @@ jobs:
       - name: list the files
         run: ls -ltr
       - name: use value from say_hello
-        run: echo "value is ${{needs.say_hello.outputs.value}}"
+        run: echo "value is ${{needs.say-hello.outputs.my_shared_var }}"
 
 
