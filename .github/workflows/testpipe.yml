@@ -26,18 +26,12 @@ jobs:
         run: echo "${{needs.say-hello.outputs.my_shared_var }}, $newvar"
         env:
           newvar: Hooray!
-      
+
   call-triggered-workflow:
     needs: checkout-code
     uses: ./.github/workflows/TriggeredWorkFlow.yml
-    runs-on: ubuntu-latest
-    outputs:
-      trig_var: ${{steps.set.outputs.msg}}
-      steps:
-          - name: print from triggered workflow
-            id: trig
-            run: echo "${{needs.build.outputs.trig_var}}"
       
+  
   
 
 
