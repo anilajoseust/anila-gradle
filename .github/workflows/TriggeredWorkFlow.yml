@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Run a script
         id: set
-        run: echo "msg=This is the triggered workflow" >>GITHUB_OUTPUT
+        run: echo "msg=This is the triggered workflow" >>$GITHUB_OUTPUT
 
 
 
