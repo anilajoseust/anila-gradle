@@ -13,7 +13,7 @@ jobs:
   checkout-code:
     runs-on: ubuntu-latest
     needs: say-hello
-    envs:
+    env:
       newvar: Hooray!
     steps:
       - name: checkout the code
