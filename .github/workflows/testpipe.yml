@@ -23,7 +23,7 @@ jobs:
       - name: list the files
         run: ls -ltr
         id: hey
-        run: echo "test_result= Hooray!" >> $GITHUB_OUTPUT
+        run: echo "test_result= Hooray!" >> $GITHUB_OUTPUT1
       - name: use value from say_hello
         run: echo "${{needs.say-hello.outputs.my_shared_var }} {{newvar}}!"
         
