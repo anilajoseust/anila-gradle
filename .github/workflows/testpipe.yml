@@ -26,19 +26,8 @@ jobs:
         run: echo "${{needs.say-hello.outputs.my_shared_var }}, $newvar"
         env:
           newvar: Hooray!
-      - name: Generate GitHub App token
-        id: generate_token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-      - name: Trigger another workflow
-        uses: benc-uk/workflow-dispatch@v1.2.3
-        with:
-          workflow: TriggeredWorkFlow.yml
-          token: ${{ steps.generate_token.outputs.token }}
-          repo: anila/anila-gradle
-          ref: main
+      - name: workflow_call
+        uses: ./.github/workflows/TriggeredWorkFlow.yml
 
 
 
