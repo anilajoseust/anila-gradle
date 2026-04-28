@@ -7,6 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      my_output: ${{steps.set.outputs.msg}}
     steps:
       - name: Run a script
-        run: echo "This is the triggered workflow"
+        id: set
+        run: echo "msg=This is the triggered workflow" >>GITHUB_OUTPUT
+
+
+
+
+
+
