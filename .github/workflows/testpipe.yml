@@ -28,7 +28,7 @@ jobs:
           newvar: Hooray!
 
   call-triggered-workflow:
-    
+    needs: checkout-code
     uses: ./.github/workflows/TriggeredWorkFlow.yml
       
   
