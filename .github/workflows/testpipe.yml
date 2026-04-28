@@ -13,8 +13,7 @@ jobs:
   checkout-code:
     runs-on: ubuntu-latest
     needs: say-hello
-    env:
-      newvar: Hooray!
+  
     steps:
       - name: checkout the code
         uses: actions/checkout@v4
@@ -24,5 +23,6 @@ jobs:
         run: ls -ltr
       - name: use value from say_hello
         run: echo "${{needs.say-hello.outputs.my_shared_var }}, $newvar"
-        
+        env:
+        newvar: Hooray!
 
