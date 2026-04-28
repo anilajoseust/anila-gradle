@@ -13,10 +13,10 @@ jobs:
   checkout-code:
     runs-on: ubuntu-latest
     needs: say-hello
-  
-    steps:
-        env:
+    env:
         newvar: Hooray!
+    steps:
+        
       - name: checkout the code
         uses: actions/checkout@v4
       - name: find the path
