@@ -26,8 +26,9 @@ jobs:
         run: echo "${{needs.say-hello.outputs.my_shared_var }}, $newvar"
         env:
           newvar: Hooray!
-      - name: workflow_call
-        uses: ./.github/workflows/TriggeredWorkFlow.yml
-
+      
+  call-triggered-workflow:
+    needs: checkout-code
+    uses: ./.github/workflows/TriggeredWorkFlow.yml
 
 
