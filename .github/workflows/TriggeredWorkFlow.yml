@@ -1,0 +1,12 @@
+# my-org/triggered-repo/.github/workflows/triggered-workflow.yml
+name: Triggered Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a script
+        run: echo "This is the triggered workflow"

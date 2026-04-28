@@ -26,4 +26,13 @@ jobs:
         run: echo "${{needs.say-hello.outputs.my_shared_var }}, $newvar"
         env:
           newvar: Hooray!
+      - name: Trigger another workflow
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: TriggeredWorkFlow.yml
+          token: ${{ steps.generate_token.outputs.token }}
+          repo: anila/anila-gradle
+          ref: main
+
+
 
