@@ -36,6 +36,6 @@ jobs:
     needs: call-triggered-workflow
     steps:
       - name: Show message from triggered workflow
-        run: echo "${{ needs.call-triggered-workflow.outputs.result }}"
+        run: echo "${{ needs.call-triggered-workflow.outputs.msg}}"
 
 
