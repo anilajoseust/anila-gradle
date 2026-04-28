@@ -13,8 +13,8 @@ jobs:
   checkout-code:
     runs-on: ubuntu-latest
     needs: say-hello
-    outputs:
-      newvar: ${{steps.hey.outputs.test_result}}
+    envs:
+      newvar: Hooray!
     steps:
       - name: checkout the code
         uses: actions/checkout@v4
@@ -22,9 +22,7 @@ jobs:
         run: pwd
       - name: list the files
         run: ls -ltr
-        id: hey
-        run: echo "test_result= Hooray!" >> $GITHUB_OUTPUT1
       - name: use value from say_hello
-        run: echo "${{needs.say-hello.outputs.my_shared_var }} {{newvar}}!"
+        run: echo "${{needs.say-hello.outputs.my_shared_var }}, $newvar"
         
 
