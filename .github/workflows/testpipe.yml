@@ -33,7 +33,7 @@ jobs:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
       - name: Trigger another workflow
-        uses: benc-uk/workflow-dispatch@v3
+        uses: benc-uk/workflow-dispatch@v1.2.3
         with:
           workflow: TriggeredWorkFlow.yml
           token: ${{ steps.generate_token.outputs.token }}
