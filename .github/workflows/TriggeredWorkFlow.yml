@@ -24,7 +24,7 @@ jobs:
         name: print the input
       - name: Run a script
         id: setvar
-        run: echo "msg= ${{ inputs.hi_var }} - $newvar1" >>$GITHUB_OUTPUT1
+        run: echo "msg= ${{ inputs.hi_var }} - $newvar1" >>$GITHUB_OUTPUT
         env:
           newvar1: there!
       - name: Add numbers
@@ -33,7 +33,7 @@ jobs:
           a=5
           b=3
           sum=$((a + b))
-          echo "result=$sum" >> $GITHUB_OUTPUT2
+          echo "result=$sum" >> $GITHUB_OUTPUT
 
 
 
