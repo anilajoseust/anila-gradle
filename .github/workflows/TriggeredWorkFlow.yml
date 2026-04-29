@@ -16,7 +16,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      my_output: ${{steps.setvar.outputs.msg}}
+      my_output: ${{steps.calc.outputs.result}}
     steps:
       - run: echo "${{ inputs.hi_var }}" 
         name: print the input
@@ -25,4 +25,17 @@ jobs:
         run: echo "msg= ${{ inputs.hi_var }} - $newvar1" >>$GITHUB_OUTPUT
         env:
           newvar1: there!
+      - name: Add numbers
+        id: calc
+        run: |
+          a=5
+          b=3
+          sum=$((a + b))
+          echo "result=$sum" >> $GITHUB_OUTPUT
+
+
+
+
+
+
 
