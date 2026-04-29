@@ -3,19 +3,22 @@ name: Triggered Workflow
 
 on:
   workflow_call:
+    inputs: 
+      hi_var: 
+        required: true
+        type: string
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      my_output: ${{steps.set.outputs.msg}}
+    # outputs:
+    #   my_output: ${{steps.set.outputs.msg}}
     steps:
-      - name: Run a script
-        id: set
-        run: echo "msg=This is the triggered workflow" >>$GITHUB_OUTPUT
-
-
-
+      - run: echo "${{ inputs.hi_var }}" 
+        name: print the input
+      # - name: Run a script
+      #   id: set
+      #   run: echo "msg=This is the triggered workflow" >>$GITHUB_OUTPUT
 
 
 

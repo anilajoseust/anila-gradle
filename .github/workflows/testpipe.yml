@@ -15,7 +15,6 @@ jobs:
     needs: say-hello
     
     steps:
-        
       - name: checkout the code
         uses: actions/checkout@v4
       - name: find the path
@@ -30,6 +29,8 @@ jobs:
   call-triggered-workflow:
     needs: checkout-code
     uses: ./.github/workflows/TriggeredWorkFlow.yml
+    with:
+      hi_var: "hi"
       
   
   
