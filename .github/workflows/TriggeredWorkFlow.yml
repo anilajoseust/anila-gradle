@@ -10,8 +10,7 @@ on:
     outputs: 
       out_var: 
         value: ${{jobs.build.outputs.my_output}}
-      env:
-          newvar1: there!
+      
 
 jobs:
   build:
@@ -24,5 +23,6 @@ jobs:
       - name: Run a script
         id: setvar
         run: echo "msg=This is the triggered workflow - $newvar1" >>$GITHUB_OUTPUT
-
+        env:
+          newvar1: there!
 
