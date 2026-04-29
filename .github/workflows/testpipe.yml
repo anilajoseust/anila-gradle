@@ -31,7 +31,15 @@ jobs:
     uses: ./.github/workflows/TriggeredWorkFlow.yml
     with:
       hi_var: "hi"
-      
+
+  call-output-from-triggered-workflow: 
+    needs: call-triggered-workflow
+    runs-on: ubuntu-latest
+    steps: 
+      - name: getting TriggeredWorkFlow output
+        run: echo ${{needs.call-Triggered-workflow.outputs.out_var}}
+
+   
   
   
 

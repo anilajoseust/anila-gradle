@@ -7,18 +7,20 @@ on:
       hi_var: 
         required: true
         type: string
+    outputs: 
+      out_var: ${{jobs.build.outputs.my_output}}
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    # outputs:
-    #   my_output: ${{steps.set.outputs.msg}}
+    outputs:
+      my_output: ${{steps.setvar.outputs.msg}}
     steps:
       - run: echo "${{ inputs.hi_var }}" 
         name: print the input
-      # - name: Run a script
-      #   id: set
-      #   run: echo "msg=This is the triggered workflow" >>$GITHUB_OUTPUT
-
+      - name: Run a script
+        id: setvar
+        run: echo "msg=This is the triggered workflow" >>$GITHUB_OUTPUT
 
 
