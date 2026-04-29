@@ -9,20 +9,22 @@ on:
         type: string
     outputs: 
       out_var: 
-        value: ${{jobs.build.outputs.my_output}}
+        value2: ${{jobs.build.outputs.my_output2}}
+        value1: ${{jobs.build.outputs.my_output1}}
       
 
 jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      my_output: ${{steps.calc.outputs.result}}
+      my_output1: ${{steps.calc.outputs.result}}
+      my_output2: ${{steps.setvar.outputs.msg}}
     steps:
       - run: echo "${{ inputs.hi_var }}" 
         name: print the input
       - name: Run a script
         id: setvar
-        run: echo "msg= ${{ inputs.hi_var }} - $newvar1" >>$GITHUB_OUTPUT
+        run: echo "msg= ${{ inputs.hi_var }} - $newvar1" >>$GITHUB_OUTPUT1
         env:
           newvar1: there!
       - name: Add numbers
@@ -31,7 +33,7 @@ jobs:
           a=5
           b=3
           sum=$((a + b))
-          echo "result=$sum" >> $GITHUB_OUTPUT
+          echo "result=$sum" >> $GITHUB_OUTPUT2
 
 
 
