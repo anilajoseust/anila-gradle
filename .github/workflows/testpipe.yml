@@ -37,7 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: getting TriggeredWorkFlow output
-        run: echo ${{needs.call-Triggered-workflow.outputs.out_var}}
+        run: echo ${{needs.call-Triggered-workflow.outputs.out_var}} 
+      - name: getting TriggeredWorkFlow output sum
+        run: echo ${{needs.call-Triggered-workflow.outputs.out_sum}}
 
    
   

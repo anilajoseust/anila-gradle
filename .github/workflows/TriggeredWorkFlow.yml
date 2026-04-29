@@ -9,8 +9,9 @@ on:
         type: string
     outputs: 
       out_var: 
-        value2: ${{jobs.build.outputs.my_output2}}
-        value1: ${{jobs.build.outputs.my_output1}}
+        value: ${{jobs.build.outputs.my_output2}}
+      out_sum:
+        value: ${{jobs.build.outputs.my_output1}}
       
 
 jobs:
