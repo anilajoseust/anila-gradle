@@ -23,6 +23,6 @@ jobs:
         name: print the input
       - name: Run a script
         id: setvar
-        run: echo "msg=This is the triggered workflow, $newvar1" >>$GITHUB_OUTPUT
+        run: echo "msg=This is the triggered workflow", $newvar1 >>$GITHUB_OUTPUT
 
 
