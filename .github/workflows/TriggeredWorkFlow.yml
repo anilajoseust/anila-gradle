@@ -8,7 +8,8 @@ on:
         required: true
         type: string
     outputs: 
-      out_var: ${{jobs.build.outputs.my_output}}
+      out_var: 
+        value: ${{jobs.build.outputs.my_output}}
 
 
 jobs:
