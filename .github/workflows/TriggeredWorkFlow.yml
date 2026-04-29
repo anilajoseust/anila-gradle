@@ -35,6 +35,11 @@ jobs:
           b=3
           sum=$((a + b))
           echo "result=$sum" >> $GITHUB_OUTPUT
+      - name: Run a script
+        id: setvar1
+        run: echo "msg= ${{ inputs.hi_var }} - $newvar1" 
+        env:
+          newvar1: there!
 
 
 
