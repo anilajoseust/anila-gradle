@@ -15,9 +15,8 @@ jobs:
         run: echo "This runs only on main branch"
 
   job2-feature:
-    if: startsWith(github.ref, 'refs/heads/feature/')
+    if: startsWith(github.ref, 'refs/heads/feature')
     runs-on: ubuntu-latest
     steps:
       - name: Run on feature branch
         run: echo "This runs only on feature branches"
-        
