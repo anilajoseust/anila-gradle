@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feature/**   # matches feature branches like feature/x, feature/test
+      - feature*   # matches feature branches like feature/x, feature/test
 
 jobs:
   job1-main:
@@ -20,4 +20,4 @@ jobs:
     steps:
       - name: Run on feature branch
         run: echo "This runs only on feature branches"
-        
+
