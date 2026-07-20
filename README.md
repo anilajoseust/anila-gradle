@@ -11,5 +11,3 @@ This is a sample project to demonstrate the CI/CD pipeline for a Java Springboot
 7. Push the Docker image to DockerHub
 
 The pipeline is defined in the file [action.yml](.github/workflows/action.yaml)
-
-
